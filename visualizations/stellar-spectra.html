@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="resources/astro-viz.css">
+  <link rel="stylesheet" type="text/css" href="resources/stellar-spec.css">
+
+  <title>Stellar Spectra</title>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Stellar Spectra Viewer</h1>
+
+    <ul class="head-list">
+      <li>These data come from the stellar spectra library described by
+        A.J. Pickles (Proc. Ast. Soc. Pacific, 1998).</li>
+      <li>These spectra are not displayed on a fixed intensity scale.
+        The height of each spectrum is stretched to fill the display.</li>
+      <li>To display a different spectrum, click a button on the left. By
+        default, the spectrum of a G2V star like the Sun is shown.</li>
+      <li>To measure the wavelength of a feature in the spectrum, click or
+        click-and-drag. The wavelength is shown at the bottom of
+        the display.</li>
+      <li>For reference, visible light ranges from 400 to 700 nanometers.
+        Ultraviolet is shorter in wavelength, infrared is longer.</li>
+    </ul>
+
+    <div class="row">
+
+      <div class="column left highlight-color2">
+        <p class="btn-header">Spectral Types:</p>
+        <button class="navbtn" id="o9v">type O9V</button>
+        <button class="navbtn" id="b3v">type B3V</button>
+        <button class="navbtn" id="b8v">type B8V</button>
+        <button class="navbtn" id="a0v">type A0V</button>
+        <button class="navbtn" id="a3v">type A3V</button>
+        <button class="navbtn" id="a7v">type A7V</button>
+        <button class="navbtn" id="f2v">type F2V</button>
+        <button class="navbtn" id="f8v">type F8V</button>
+        <button class="navbtn chosen" id="g2v">type G2V</button>
+        <button class="navbtn" id="g8v">type G8V</button>
+        <button class="navbtn" id="k2v">type K2V</button>
+        <button class="navbtn" id="k7v">type K7V</button>
+        <button class="navbtn" id="m2v">type M2V</button>
+        <button class="navbtn" id="m6v">type M6V</button>
+        <!-- <p class="btn-header">Color Filters:</p>
+        <button class="navbtn" id="ufilt">U filter</button>
+        <button class="navbtn" id="bfilt">B filter</button>
+        <button class="navbtn" id="vfilt">V filter</button>
+        <button class="navbtn" id="rfilt">R filter</button> -->
+      </div>
+
+      <div class="column right" id="p5canvas"></div>
+
+    </div>
+
+    <div class="footer highlight-color3">
+      <p class="pfooter"><a href="../index.html">
+          Back to Healy's homepage</a></p>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+  <script src="resources/stellar-spec.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+@charset "utf-8";
+
+body {
+  font: 100% Arial, Helvetica, sans-serif;
+  background: #bab2b5;
+  text-align: left;
+  color: #000000;
+  padding: 15px;
+  margin: 0;
+}
+
+/* Define page layout */
+.container {
+  width: 1080px;
+  background: #edc7b7;
+  margin: 0 auto;
+  border: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* #p5canvas {
+} */
+/* Define page colors
+	blue = #123c69
+	wine = #ac3b61
+	tan  = #edc7b7
+	gray = #bab2b5
+	pale = #eee2dc
+*/
+.highlight-color {
+  background-color: #edc7b7;
+}
+
+.highlight-color2 {
+  background-color: #eee2dc;
+}
+
+.highlight-color3 {
+  background-color: #123c69
+}
+
+h1 {
+  margin: 0;
+  padding: 8px;
+  color: #123c69;
+}
+
+a {
+  /* text-decoration: none; */
+  color: #007bff;
+}
+
+.top-para {
+  padding: 0 0 10px 0;
+}
+
+.top-paragraphs {
+  list-style-type: none;
+  margin: 0;
+  padding: 15px 0 0 15px;
+  border-left: 7px solid #ac3b61;
+  background-color: #eee2dc;
+}
+
+.footer {
+  /* width: 1000px; */
+  background: #edc7b7;
+  margin: 0 auto;
+  border: none;
+}
+
+.pfooter {
+  font-size: 75%;
+  margin: 0;
+  padding: 5px 0 10px 5px;
+}

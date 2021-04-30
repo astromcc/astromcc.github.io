@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="resources/astro-viz.css">
+  <link rel="stylesheet" type="text/css" href="resources/bayes.css">
+
+  <title>A Little Bayes</title>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>A Demonstration of Bayes' Theorem</h1>
+
+    <div class="intro">
+      <ul class="head-list">
+        <li class="list-header">Thomas Bayes (1701 - 1761) was an English
+          mathematician, philosopher, and Presbyterian minister who
+          developed a new way of thinking about data and probability.</li>
+
+        <li class="list-header">His central concept: <i>We update our knowledge
+            as data (observations, measurements, etc.) are collected.</i></li>
+
+        <li class="list-header">This box below demonstrates a simple example of
+          Bayes' theorem. Your task is use the available data to predict where
+          a dot is hidden somewhere within the white box.</li>
+
+        <li class="list-header">This process is a simple model of how scientists
+          gain confidence in their knowledge of the natural world.</li>
+
+        <li class="list-header">Initially the white box below is empty.
+          You have no information about the position of the hidden dot.</li>
+
+        <li>You can make an initial guess about the location of the dot by
+          clicking within the white box.</li>
+
+        <li>Make a measurement by clicking the <i>Measure</i> button.
+          A black dot will appear to mark the data point.</li>
+
+        <li>A colored region shows if the hidden dot is left, right, above, or
+          below the data point.</li>
+
+        <li>After you add a data point, update your prediction by clicking in
+          the white box again.</li>
+
+        <li>Add more data points and continue to update your prediction.</li>
+
+        <li>If you feel confident in the hidden dot's location, click the
+          <i>Reveal</i> button to display the hidden dot.</li>
+
+        <li>You can start a new search by clicking the <i>Restart</i>
+          button.</li>
+
+      </ul>
+
+    </div>
+
+    <div id="p5canvas">
+    </div>
+
+    <div class="buttons">
+      <form>
+        <input type="button" value="Measure" onclick="measure()">
+        &emsp;
+        <input type="button" value="Reveal" onclick="reveal()">
+        &emsp;
+        <input type="button" value="Restart" onclick="restart()">
+      </form>
+    </div>
+
+    <div class="footer">
+      <p class="pfooter"><a href="../index.html">
+          Back to Healy's homepage</a></p>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+  <script src="resources/bayes.js"></script>
+
+</body>
+
+</html>

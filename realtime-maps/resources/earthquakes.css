@@ -1,0 +1,112 @@
+@charset "utf-8";
+body {
+	font: 100% Arial, Helvetica, sans-serif;
+	background: #bab2b5;
+	text-align: left;
+	color: #000000;
+	padding: 15px;
+	margin: 0;
+}
+
+/* Define page layout */
+.container {
+  width: 1024px;
+  background: #edc7b7;
+  margin: 0 auto;
+  border: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#p5canvas {
+	width: 1024px;
+	background: #edc7b7;
+	margin: 0 auto;
+	padding: 10px 0 5px 0;
+	border: none;
+}
+
+/* Define page colors
+	blue = #123c69
+	wine = #ac3b61
+	tan  = #edc7b7
+	gray = #bab2b5
+	pale = #eee2dc
+*/
+
+.page-title {
+	color: #edc7b7;
+	margin: 0;
+	padding-bottom: 13px;
+}
+
+.highlight-color {
+	background-color: #edc7b7;
+}
+
+.highlight-color2 {
+	background-color: #eee2dc;
+}
+
+.highlight-color3 {
+	background-color: #123c69
+}
+
+h1 {
+	margin: 0;
+	padding: 15px;
+	color: #123c69;
+}
+
+a {
+	/* text-decoration: none; */
+	color: #007bff;
+}
+
+.top-para {
+	padding: 0 0 10px 0;
+}
+
+.top-paragraphs {
+	list-style-type: none;
+	margin: 0;
+	padding: 15px 0 0 15px;
+	border-left: 7px solid #ac3b61;
+	background-color: #eee2dc;
+}
+
+.map-details {
+	margin: 0;
+	padding: 5px 0 15px 15px;
+	border-left: 7px solid #ac3b61;
+	background-color: #eee2dc;
+}
+
+.first-detail {
+	list-style: none;
+	padding: 0;
+}
+
+.other-detail {
+	list-style-position: inside;
+	list-style-type: square;
+	padding: 0;
+}
+
+#depth-details {
+	list-style-type: none;
+	margin: 0;
+	padding: 0 0 0 35px;
+}
+
+.footer {
+	width: 1024px;
+  background: #edc7b7;
+  margin: 0 auto;
+  border: none;
+}
+
+.pfooter {
+	font-size: 75%;
+	margin: 0;
+	padding: 5px 0 10px 5px;
+}

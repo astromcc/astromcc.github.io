@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="astro-equations.css">
+
+  <title>Astronomy Equations</title>
+
+</head>
+
+<body>
+  <div class="container">
+    <h1>Astronomy Calculations</h1>
+
+    <p>This page provides a variety of calculations using equations common
+      in the field of astronomy.</p>
+
+    <h4>To use an equation,</h4>
+    <ul>
+      <li>Leave one box empty, to be calculated.</li>
+      <li>Fill all other boxes with input numbers.</li>
+      <li>Press the Enter key or click the "Solve" button.</li>
+      <li>The value of the missing quantity will be displayed.</li>
+      <li>Click the "Clear" button to erase all input boxes.</li>
+    </ul>
+
+    <p>Numbers large and small can be entered into the input boxes below using
+      the "e" format that computers use for scientific notation. The "e"
+      stands for <i>exponent</i> and it takes the place of the power of ten
+      in a number in scientific notation. For example, 1500 = 1.5 x 10^3
+      = 1.5e3. Similarly, 0.0000093 = 9.3 x 10^-6 = 9.3e-6.</p>
+
+    <!-- A note about coding mathematical relations in MathJax library.
+     Inline mode is delimited with /( and /)
+     Centered "display" mode is delimited with /[ and /]           -->
+
+    <!-- BEGIN STELLAR PARALLAX -->
+    <form name="parallax" class="indented">
+      <h2>Stellar Parallax</h2>
+
+      <p>Relationship between:
+      <ul>
+        <li>The <b>parallax angle</b> of a star, expressed in
+          <i>arcseconds</i></li>
+        <li>The star's <b>distance</b> from the Sun, expressed in
+          <i>parsecs</i></li>
+      </ul>
+
+      <p>The forms of the equation are:
+
+        \[\small \text{parallax} = {1 \over \text{distance}}\]
+
+        \[\small \text{distance} = {1 \over \text{parallax}}\]
+
+      </p>
+
+      <table align="center" class="indent-left">
+        <tbody>
+
+          <tr>
+            <td class="table-labels">parallax =</td>
+            <td><input type="text" id="par_p"></td>
+            <td>arcseconds</td>
+          </tr>
+
+          <tr>
+            <td class="table-labels">distance =</td>
+            <td><input type="text" id="par_d"></td>
+            <td>parsecs</td>
+          </tr>
+
+          <tr>
+            <td id="par_warn" class="warn"></td>
+            <td class="button-cell">
+              <input type="button" value="Solve" id="par_solve">
+              <input type="button" value="Clear" id="par_clear">
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </form>
+    <!-- END STELLAR PARALLAX -->
+
+
+    <!-- BEGIN MAGNITUDE DISTNACE -->
+    <form name="magdist" class="indented">
+      <h2>Magnitude-Distance Relation</h2>
+
+      <p>Relationship between:
+      <ul>
+        <li>The <b>apparent magnitude</b> of an object, m, has no unit
+          of measure</li>
+        <li>The <b>absolute magnitude</b> of the object, M, has no unit
+          of measure</li>
+        <li>The <b>distance</b> of the object, d, expressed in
+          <i>parsecs</i></li>
+      </ul>
+
+      <p>The forms of the equation are:
+
+        \[ \small \text{m} = \text{M} + 5 \times log_{10}(d) - 5 \]
+
+        \[ \small \text{M} = \text{m} - 5 \times log_{10}(d) + 5 \]
+
+        \[ \small x = {m - M + 5 \over 5} \text{then } d = 10^x \]
+
+      </p>
+
+      <table align="center" class="indent-left">
+        <tbody>
+
+          <tr>
+            <td class="table-labels">apparent magnitude =</td>
+            <td><input type="text" id="mmd_app"></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td class="table-labels">absolute magnitude =</td>
+            <td><input type="text" id="mmd_abs"></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td class="table-labels">distance =</td>
+            <td><input type="text" id="mmd_d"></td>
+            <td>parsecs</td>
+          </tr>
+
+          <tr>
+            <td id="mmd_warn" class="warn"></td>
+            <td class="button-cell">
+              <input type="button" value="Solve" id="mmd_solve">
+              <input type="button" value="Clear" id="mmd_clear">
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </form>
+    <!-- END MAGNITUDE-DISTANCE -->
+
+
+    <!-- BEGIN WIEN'S LAW -->
+    <form name="wien" class="indented">
+      <h2>Wien's Law</h2>
+
+      <p>Relationship between:
+      <ul>
+        <li>The <b>temperature</b> of an object emitting a thermal spectrum,
+          expressed in <i>kelvins</i></li>
+        <li>The <b>wavelength</b> of the peak of the spectrum,
+          expressed in <i>meters</i> by default<br>
+        <li>The dropdown menu provides other units of length to choose from</li>
+      </ul>
+
+      <p>The forms of the equation are:
+
+        \[\small \text{wavelength} =
+        {2.9 \times 10^{-3} \over \text{temperature}}\]
+
+        \[\small \text{temperature} =
+        {2.9 \times 10^{-3} \over \text{wavelength}}\]
+      </p>
+
+      <table class="indent-left">
+        <tbody>
+
+          <tr>
+            <td class="table-labels">temperature = </td>
+            <td><input type="text" id="wien_t"></td>
+            <td>kelvins</td>
+          </tr>
+
+          <tr>
+            <td class="table-labels">wavelength = </td>
+            <td><input type="text" id="wien_w"></td>
+            <td>
+              <select name="units" id="wien_units">
+                <option value="meters" selected>meters</option>
+                <option value="millimeters">millimeters</option>
+                <option value="micrometers">micrometers</option>
+                <option value="nanometers">nanometers</option>
+              </select>
+            </td>
+          </tr>
+
+          <tr>
+            <td id="wien_warn" class="warn"></td>
+            <td class="button-cell">
+              <input type="button" value="Solve" id="wien_solve">
+              <input type="button" value="Clear" id="wien_clear">
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </form>
+    <!-- END WIEN'S LAW -->
+
+
+    <!-- BEGIN lUMINOSITY-TEMPERATURE-RADIUS -->
+    <form name="wien" class="indented">
+      <h2>Luminosity-Temperature-Radius Relation for Stars</h2>
+
+      <p>Relationship between:
+      <ul>
+        <li>A star's <b>luminosity</b>, \( \small L_{star} \) expressed in
+          <i>solar units</i>. For example:
+          <ul>
+            <li>a star with half the luminosity of the Sun would
+              have \(\small L_{star} / L_{Sun} = 0.5\)</li>
+            <li>a star with 100 times the luminosity of
+              the Sun would have \(\small L_{star} / L_{Sun} = 100\)
+          </ul>
+        </li>
+        <li>The star's <b>surface temperature</b>, \( \small T_{star} \),
+          expressed in <i>kelvins</i>
+          <ul>
+            <li>Sun's surface temperature, \( \small T_{Sun} \), is 5,800 K</li>
+            <li>Stars typically have surface temperatures between 3,000 and
+              50,000 K</li>
+          </ul>
+        </li>
+        <li>The star's <b>radius</b>, \( \small R_{star} \), expressed in
+          <i>solar units</i> by default. For example:
+          <ul>
+            <li>a star with a radius 4 times smaller than the Sun would have
+              \(\small R_{star} / R_{Sun} = 0.25\)</li>
+            <li>a star with a radius 10 times larger than the Sun would have
+              \(\small R_{star} / R_{Sun} = 10\)</li>
+            <li>The dropdown menu provides other units of length to choose
+              from</li>
+
+          </ul>
+        </li>
+      </ul>
+
+      <p>The forms of the equation are:</p>
+
+      \[\small \frac{L_{star}}{L_{Sun}} =
+      \left( \frac{T_{star}}{T_{Sun}} \right)^4 \times
+      \left( \frac{R_{star}}{R_{Sun}} \right)^2 \]
+
+      \[\small \frac{T_{star}}{T_{Sun}} =
+      \sqrt[\Large 4] { \frac{L_{star}}{L_{Sun}} } \div
+      \sqrt { \frac{R_{star}}{R_{Sun}} }\]
+
+      \[\small \frac{R_{star}}{R_{Sun}} =
+      \sqrt { \frac{L_{star}}{L_{Sun}} } \div
+      \left( { \frac{T_{star}}{T_{Sun}} } \right)^2 \]
+
+      <p><u>Note</u>: In the equation for luminosity, the first quantity on the
+        right side is <i>multiplied</i> by the second quantity.
+        In the equations for temperature and radius, the first quantity on the
+        right side is <i>divided</i> by the second quantity.
+
+      <table class="indent-left">
+        <tbody>
+
+          <tr>
+            <td class="table-labels">luminosity = </td>
+            <td><input type="text" id="ltr_lu"></td>
+            <td>solar luminosities</td>
+          </tr>
+
+          <tr>
+            <td class="table-labels">temperature = </td>
+            <td><input type="text" id="ltr_t"></td>
+            <td>kelvins</td>
+          </tr>
+
+          <tr>
+            <td class="table-labels">radius = </td>
+            <td><input type="text" id="ltr_r"></td>
+            <td>
+              <select name="units" id="ltr_units">
+                <option value="solar radii" selected>solar radii</option>
+                <option value="meters">meters</option>
+                <option value="kilometers">kilometers</option>
+                <option value="AU">Astronomical Units</option>
+              </select>
+            </td>
+          </tr>
+
+          <tr>
+            <td id="ltr_warn" class="warn"></td>
+            <td class="button-cell">
+              <input type="button" value="Solve" id="ltr_solve">
+              <input type="button" value="Clear" id="ltr_clear">
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </form>
+    <!-- END lUMINOSITY-TEMPERATURE-RADIUS -->
+
+
+  </div>
+
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <script src=astro-equations.js></script>
+
+</body>
+
+</html>

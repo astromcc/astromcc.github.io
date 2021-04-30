@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="resources/astro-viz.css">
+  <link rel="stylesheet" type="text/css" href="resources/sdss-gal-slices.css">
+
+  <title>Galaxies from SDSS</title>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Visualizing Galaxies from the Sloan Digital Sky Survey</h1>
+
+    <ul class="head-list">
+      <li>These data come from Data Release 16 of the
+        Sloan Digital Sky Survey (<a href="https://www.sdss.org/dr16">webpage
+          with details</a>).</li>
+      <li>Galaxies are selected based on a minimum brightness.
+        Magnitude limits per filter:
+        u < 22.0, g < 22.2, r < 22.2, i < 21.3, z < 20.5</li>
+      <li>Each image below displays a selection of galaxies
+        with a range of redshifts. Each blue dot is a single galaxy.</li>
+      <li>Each range is selected to display a different
+        distance from us and a different time in cosmic history.</li>
+      <li>Clicking each button on the left-hand navigation bar
+        below selects a different redshift range.</li>
+    </ul>
+
+    <div class="row">
+
+      <div class="column left highlight-color2">
+        <p class="btn-header">Redshift:</p>
+        <button class="navbtn chosen" id="rs002">0.020-0.025</button>
+        <button class="navbtn" id="rs007">0.070-0.075</button>
+        <button class="navbtn" id="rs012">0.120-0.125</button>
+        <button class="navbtn" id="rs020">0.200-0.207</button>
+        <button class="navbtn" id="rs040">0.40-0.42</button>
+        <button class="navbtn" id="rs060">0.60-0.62</button>
+      </div>
+
+      <div class="column right">
+        <img src="images/sdss-gals-redshift002.png" alt="Galaxy Map" id="galmap">
+      </div>
+
+    </div>
+
+    <div class="footer highlight-color3">
+      <p class="pfooter"><a href="../index.html">
+          Back to Healy's homepage</a></p>
+    </div>
+
+  </div>
+
+  <script src="resources/sdss-gal-slices.js"></script>
+
+</body>
+
+</html>

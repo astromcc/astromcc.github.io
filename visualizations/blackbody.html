@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="resources/astro-viz.css">
+  <link rel="stylesheet" type="text/css" href="resources/blackbody.css">
+
+  <title>A Thermal Spectrum</title>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>A Thermal Spectrum</h1>
+
+    <div class="intro">
+      <ul class="head-list">
+        <li class="list-header">Objects emit light, even if that light is
+          not visible light. The amount of light emitted at each wavelength
+          depends on the absolute temperature of the object, measured in
+          <i>Kelvins</i>.
+        </li>
+
+        <li class="list-header">A <i>thermal spectrum</i> is a special kind of
+          light spectrum that depends on the object's temperature only.
+          Another term for this kind of spectrum is a <i>blackbody spectrum</i>.
+          The ideal object emitting the spectrum is described as a
+          <i>blackbody</i>.
+        </li>
+
+        <li class="list-header">The graph below displays the thermal spectrum
+          for a blackbody. The temperature of the blackbody is controlled by
+          the slider.
+        </li>
+
+        <li>Checkboxes can display or hide various features.</li>
+
+      </ul>
+
+    </div>
+
+    <div id="p5canvas">
+    </div>
+
+    <div class="buttons">
+      <form>
+        <input type="button" value="Some 1" onclick="measure()">
+        &emsp;
+        <input type="button" value="Some 2" onclick="reveal()">
+        &emsp;
+        <input type="button" value="Some 3" onclick="restart()">
+      </form>
+    </div>
+
+    <div class="footer">
+      <p class="pfooter"><a href="../index.html">
+          Back to Healy's homepage</a></p>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+  <script src="resources/blackbody.js"></script>
+
+</body>
+
+</html>

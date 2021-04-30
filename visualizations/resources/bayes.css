@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+/* Define overrides and additions to the template astro-viz.css file */
+/* Define page layout */
+.container {
+  width: 800px;
+  text-align: center;
+}
+
+.intro {
+  text-align: left;
+  margin-bottom: 12px;
+}
+
+#p5canvas {
+  width: 600px;
+  height: 600px;
+  margin: auto;
+  border: 1px solid black;
+  background: #ffffff;
+}
+
+div.buttons {
+  padding: 12px 0 12px 0;
+}
