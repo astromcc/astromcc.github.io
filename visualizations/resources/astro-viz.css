@@ -60,8 +60,10 @@ a {
 
 ul.head-list {
   list-style-type: square;
-  margin: 0;
-  padding: 7px 0 7px 0;
+  list-style-position: inside;
+  margin: 0 0 0 0;
+  text-indent: -22px;
+  padding: 7px 15px 7px 20px;
   border-left: 7px solid #123c69;
   background-color: #eee2dc;
 }
