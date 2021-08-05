@@ -68,15 +68,15 @@ function switchBody(choice, spectrum) {
   }
 }
 
-// Define listeners for spectral type button presses
-document.getElementById("mercury").addEventListener("click", function() {
-  switchBody("mercury")
+// Define listeners for planetary body button presses
+document.getElementById("merc").addEventListener("click", function() {
+  switchBody("merc")
 });
-document.getElementById("venus").addEventListener("click", function() {
-  switchBody("venus")
+document.getElementById("venu").addEventListener("click", function() {
+  switchBody("venu")
 });
-document.getElementById("earth").addEventListener("click", function() {
-  switchBody("earth")
+document.getElementById("eart").addEventListener("click", function() {
+  switchBody("eart")
 });
 document.getElementById("moon").addEventListener("click", function() {
   switchBody("moon")
