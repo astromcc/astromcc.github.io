@@ -19,25 +19,25 @@ let currentBody = "earth";
 // Define spectral maxima to scale display of spectra
 // Values read in from Python
 let measured = {
-  "mercury": 5400,
-  "venus": 5200,
-  "earth": 5500,
+  "mercy": 5400,
+  "venu": 5200,
+  "eart": 5500,
   "moon": 3300,
   "mars": 3900
 };
 
 function preload() {
-  // Load default G2V stellar spectrum
+  // Load Earth images (globe + core)
   earsurf = loadImage("images/earth-globe.png");
   earcore = loadImage("images/earth-core.png");
 }
 
 function setup() {
   // Create canvas and assign to html div
-  let canvas0 = createCanvas(600, 600);
+  let canvas0 = createCanvas(800, 700);
   canvas0.parent("p5canvas");
-  // Load remaining images that won't be displayed until user clicks.
-  // Two images per body - "globe" displays surface, "core" is core.
+  // Load images that won't be displayed until user clicks.
+  // Two images per body - "globe" = surface, "core" = core.
   // "core" image is scaled to 100% of radius of body
   mersurf = loadImage("images/mercury-globe.png");
   mercore = loadImage("images/mercury-core.png");
@@ -48,18 +48,33 @@ function setup() {
   marsurf = loadImage("images/mars-globe.png");
   marcore = loadImage("images/mars-core.png");
 
-  // Set black background, draw axes, and display default G2V spectrum
-  background(0);
+  // Set black background
+  background(237, 199, 183);
+
+  // Set up text labels
+
+  // Set up density slider
+  let slider = createSlider(0, 100, 50, 1);
+  slider.position(0, 0);
+  slider.parent("p5canvas");
+  slider.style('width', '300px');
+  // slider.style('transform: rotate(90deg)');
 }
 
 function draw() {
-  image(earsurf, 0, 0, 600, 600);
-  image(earcore, 0, 0, 600, 600);
+  fill(0);
+  rect(185, 0, 600, 600);
+  image(earsurf, 185, 0, 600, 600);
+  image(earcore, 185, 0, 600, 600);
+}
+
+function drawBody() {
+
 }
 
 // Switch the displayed body when one of the buttons is pressed and
 // change the highlighting of the new and the old chosen body.
-function switchBody(choice, spectrum) {
+function switchBody(choice, currentBody) {
   if (choice != currentBody) {
     document.getElementById(currentBody).classList.remove("chosen");
     document.getElementById(choice).classList.add("chosen");

@@ -173,7 +173,8 @@ function mouseReadout(pos) {
   pop();
 }
 
-// Define listeners for spectral type button presses
+// Define listeners for spectral-type button presses
+// This syntax is necessary because the buttons are defined in HTML.
 document.getElementById("o9v").addEventListener("click", function() {
   switchSpec("o9v", o9vflux)
 });
