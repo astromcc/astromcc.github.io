@@ -14,12 +14,12 @@ let yend = 70;
 let button;
 
 // Currently chosen body to display
-let currentBody = "earth";
+let currentBody = "eart";
 
 // Define spectral maxima to scale display of spectra
 // Values read in from Python
 let measured = {
-  "mercy": 5400,
+  "merc": 5400,
   "venu": 5200,
   "eart": 5500,
   "moon": 3300,
@@ -54,10 +54,10 @@ function setup() {
   // Set up text labels
   textSize(24);
   textAlign(CENTER);
-  text('More Rock', 95, 95);
-  text('More Metal', 95, 510);
-  text('Calculated Density', 300, 660);
-  text('Measured Density', 660, 660);
+  text('Rock', 92, 95);
+  text('Metal', 92, 510);
+  text('Calculated Density', 300, 670);
+  text('Measured Density', 660, 670);
 
   // Set up density slider
   let denslide = createSlider(0, 100, 50, 1);
