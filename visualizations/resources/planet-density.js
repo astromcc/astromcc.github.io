@@ -52,13 +52,19 @@ function setup() {
   background(237, 199, 183);
 
   // Set up text labels
+  textSize(24);
+  textAlign(CENTER);
+  text('More Rock', 95, 95);
+  text('More Metal', 95, 510);
+  text('Calculated Density', 300, 660);
+  text('Measured Density', 660, 660);
 
   // Set up density slider
-  let slider = createSlider(0, 100, 50, 1);
-  slider.position(0, 0);
-  slider.parent("p5canvas");
-  slider.style('width', '300px');
-  // slider.style('transform: rotate(90deg)');
+  let denslide = createSlider(0, 100, 50, 1);
+  denslide.style('transform: rotate(90deg)');
+  denslide.position(-57, 300);
+  denslide.parent("p5canvas");
+  denslide.style('width', '300px');
 }
 
 function draw() {
