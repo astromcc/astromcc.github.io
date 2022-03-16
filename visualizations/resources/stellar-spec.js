@@ -15,7 +15,7 @@ let xoffset = -150;
 
 // Define placement of x and y axes on the canvas
 let xorigin = 300;
-let yorigin = 470;
+let yorigin = 500;
 let xend = 900;
 let yend = 70;
 
@@ -115,7 +115,7 @@ function drawAxes() {
   // Label the x axis
   text('wavelength (nm)', 520, yorigin + 60);
   // Label the y axis
-  text('intensity', xorigin - 85, yend - 15);
+  text('intensity', xorigin - 100, yend - 15);
   pop();
   // Label the x axis tick marks with wavelength values
   push();
