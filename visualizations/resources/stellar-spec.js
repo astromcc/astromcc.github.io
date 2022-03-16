@@ -15,7 +15,7 @@ let xoffset = -150;
 
 // Define placement of x and y axes on the canvas
 let xorigin = 300;
-let yorigin = 500;
+let yorigin = 470;
 let xend = 900;
 let yend = 70;
 
