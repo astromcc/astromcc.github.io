@@ -15,9 +15,10 @@ let xoffset = -150;
 
 // Define placement of x and y axes on the canvas
 let xorigin = 300;
-let yorigin = 470;
+let yorigin = 460;
+let ybandheight = 20;
 let xend = 900;
-let yend = 70;
+let yend = 50;
 
 // Currently chosen spectrum to display
 let currentSpec = "g2v";
@@ -75,6 +76,7 @@ function setup() {
   // Set black background, draw axes, and display default G2V spectrum
   background(0);
   drawAxes();
+  drawEMBand();
   drawSpectrum(g2vflux);
 }
 
@@ -90,17 +92,20 @@ function draw() {
 
 // Draw axes lines, tick marks, axis labels, and wavelength readout
 function drawAxes() {
-  // Draw x axis
+  // Draw x-axis
   push();
   strokeWeight(1.5);
   stroke(255, 255, 255);
   translate(xoffset, 0);
+  // Draw x-axis
   line(xorigin - 10, yorigin, xend, yorigin);
+  // Draw line parallel to y-axis as top of electromagnetic band
+  line(xorigin, yorigin - ybandheight, xend, yorigin - ybandheight);
   // Add x-axis tick marks every 100 nanometers between 300 and 900 nm
   for (let w = xorigin; w < xend + 1; w += 100) {
     line(w, yorigin, w, yorigin + 10);
   }
-  // Draw y axis
+  // Draw y-axis
   line(xorigin, yorigin + 10, xorigin, yend);
   // Add one y-axis tick at the top of the axis
   line(xorigin, yend, xorigin - 10, yend);
@@ -115,7 +120,7 @@ function drawAxes() {
   // Label the x axis
   text('wavelength (nm)', 520, yorigin + 60);
   // Label the y axis
-  text('intensity', xorigin - 110, yend);
+  text('intensity', xorigin - 110, yend + 5);
   pop();
   // Label the x axis tick marks with wavelength values
   push();
@@ -132,6 +137,25 @@ function drawAxes() {
   pop();
 }
 
+// Draw the electromagnetic spectrum labels and visible colors
+// UV: 300-380nm, VIS:380-750nm, IR: 750-900nm
+function drawEMBand() {
+  push();
+  translate(xoffset, 0);
+  textSize(16);
+  fill(255);
+  noStroke();
+  // Add labels for UV, VIS, IR
+  emlabelheight = yorigin - 5;
+  uvxpos = 305;
+  visxpos = 555;
+  irxpos = 805;
+  text('ultraviolet', uvxpos, emlabelheight);
+  text('visible light', visxpos, emlabelheight);
+  text('infrared', irxpos, emlabelheight);
+  pop();
+}
+
 // Draw the chosen stellar spectrum into the graph.
 function drawSpectrum(spectrum) {
   push();
@@ -141,8 +165,10 @@ function drawSpectrum(spectrum) {
   strokeWeight(1);
   stroke(155, 255, 155);
   specmax = specmaxes[currentSpec];
+  ytop = yend + 5;
+  ybottom = yorigin - ybandheight - 2;
   for (let w = 300; w <= 900; w++) {
-    ypos = map(spectrum[w - 300], 0, specmax, yorigin - 10, yend + 10);
+    ypos = map(spectrum[w - 300], 0, specmax, ybottom, ytop);
     vertex(w, ypos);
   }
   endShape();
@@ -158,6 +184,7 @@ function switchSpec(choice, spectrum) {
     currentSpec = choice;
     background(0);
     drawAxes();
+    drawEMBand();
     drawSpectrum(spectrum);
   }
 }
