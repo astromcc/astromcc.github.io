@@ -16,7 +16,7 @@ let xoffset = -150;
 // Define placement of x and y axes on the canvas
 let xorigin = 300;
 let yorigin = 460;
-let ybandheight = 20;
+let ybandheight = 30;
 let xend = 900;
 let yend = 50;
 
@@ -92,36 +92,48 @@ function draw() {
 
 // Draw axes lines, tick marks, axis labels, and wavelength readout
 function drawAxes() {
-  // Draw x-axis
+  // Set up x-axis coordinates
   push();
   strokeWeight(1.5);
   stroke(255, 255, 255);
   translate(xoffset, 0);
+
   // Draw x-axis
-  line(xorigin - 10, yorigin, xend, yorigin);
+  line(xorigin - 10, yorigin, xend + 10, yorigin);
+
   // Draw line parallel to y-axis as top of electromagnetic band
-  line(xorigin, yorigin - ybandheight, xend, yorigin - ybandheight);
+  line(xorigin - 10, yorigin - ybandheight, xend + 10, yorigin - ybandheight);
+
+  // Bound UV, VIS, IR regions with short vertical lines
+  // line(380, yorigin, 380, yorigin - ybandheight);
+  // line(780, yorigin, 780, yorigin - ybandheight);
+
   // Add x-axis tick marks every 100 nanometers between 300 and 900 nm
   for (let w = xorigin; w < xend + 1; w += 100) {
     line(w, yorigin, w, yorigin + 10);
   }
+
   // Draw y-axis
-  line(xorigin, yorigin + 10, xorigin, yend);
+  line(xorigin, yorigin - ybandheight, xorigin, yend);
   // Add one y-axis tick at the top of the axis
   line(xorigin, yend, xorigin - 10, yend);
   pop();
 
   // Add labels to x-axis and y-axis
+  // Set up label positions and properties
   push();
   translate(xoffset, 0);
   textSize(24);
   fill(255);
   noStroke();
+
   // Label the x axis
   text('wavelength (nm)', 520, yorigin + 60);
+
   // Label the y axis
   text('intensity', xorigin - 110, yend + 5);
   pop();
+
   // Label the x axis tick marks with wavelength values
   push();
   translate(xoffset, 0);
@@ -131,25 +143,38 @@ function drawAxes() {
   for (let w = xorigin; w < xend + 1; w += 100) {
     text(str(w), w - 15, yorigin + 30)
   }
-  // No label on y axis?
+
   // Wavelength readout label
   text("wavelength under cursor:", 495, yorigin + 100);
   pop();
 }
 
 // Draw the electromagnetic spectrum labels and visible colors
-// UV: 300-380nm, VIS:380-750nm, IR: 750-900nm
+// UV: 300-400nm, VIS:400-750nm, IR: 750-900nm
 function drawEMBand() {
+  // Set up canvas coordinates and line properties
   push();
   translate(xoffset, 0);
-  textSize(16);
+  strokeWeight(1);
+  stroke(128, 128, 128);
+  for (let wl = 380; wl <= 780; wl++) {
+    rgbvalue = wavelengthToRGB(wl);
+    stroke(rgbvalue);
+    line(wl, yorigin - 5, wl, yorigin - ybandheight + 5);
+  }
+  pop();
+
+  // Set up canvas coordinates and text properties
+  push();
+  translate(xoffset, 0);
+  textSize(18);
   fill(255);
   noStroke();
   // Add labels for UV, VIS, IR
-  emlabelheight = yorigin - 5;
-  uvxpos = 305;
-  visxpos = 555;
-  irxpos = 805;
+  emlabelheight = yorigin - 10;
+  uvxpos = 295;
+  visxpos = 535;
+  irxpos = 825;
   text('ultraviolet', uvxpos, emlabelheight);
   text('visible light', visxpos, emlabelheight);
   text('infrared', irxpos, emlabelheight);
@@ -189,6 +214,7 @@ function switchSpec(choice, spectrum) {
   }
 }
 
+// Retrieve mouse position on spectrum and update wavelength text
 function mouseReadout(pos) {
   fill(0);
   rect(550, yorigin + 72, 80, 40);
@@ -198,6 +224,57 @@ function mouseReadout(pos) {
   fill(255);
   text(pos + "nm", 555, yorigin + 100);
   pop();
+}
+
+// Convert wavelength from 380 - 780 nanometers to an RGB color
+// Defined by Dan Barton at his website
+// http://www.physics.sfasu.edu/astro/color/spectra.html
+// Implementation copied from Silicann Systems GMBH
+// https://www.en.silicann.com/blog/post/wavelength-color/
+function wavelengthToRGB(wavelength) {
+  let R = 0;
+  let G = 0;
+  let B = 0;
+
+  // Translation into color
+  if (wavelength >= 380 && wavelength <= 440) {
+    R = -1*(wavelength - 440) / (440 - 380);
+    G = 0;
+    B = 1;
+  } else if (wavelength > 440 && wavelength <= 490) {
+    R = 0;
+    G = (wavelength - 440) / (490 - 440);
+    B = 1;
+  } else if (wavelength > 490 && wavelength <= 510) {
+    R = 0;
+    G = 1;
+    B = -1*(wavelength-510)/(510-490);
+  } else if (wavelength > 510 && wavelength <= 580) {
+    R = (wavelength-510)/(580-510);
+    G = 1;
+    B = 0;
+  } else if (wavelength > 580 && wavelength <= 645) {
+    R = 1;
+    G = -1*(wavelength-645)/(645-580);
+    B = 0;
+  } else if (wavelength > 645 && wavelength <= 780) {
+    R = 1;
+    G = 0;
+    B = 0;
+  }
+
+  // intensity adjustment near the vision limits
+  let intensity = 1;
+  if (wavelength >= 700) {
+    intensity = 0.3 + 0.7 * (780 - wavelength) / (780 - 700);
+  } else if (wavelength < 420) {
+    intensity = 0.3 + 0.7 * (wavelength - 380) / (420 - 380);
+  }
+  return [
+    Math.round(R*intensity*255),
+    Math.round(G*intensity*255),
+    Math.round(B*intensity*255)
+  ]
 }
 
 // Define listeners for spectral-type button presses
