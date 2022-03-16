@@ -115,7 +115,7 @@ function drawAxes() {
   // Label the x axis
   text('wavelength (nm)', 520, yorigin + 60);
   // Label the y axis
-  text('intensity', xorigin - 100, yend - 15);
+  text('intensity', xorigin - 130, yend);
   pop();
   // Label the x axis tick marks with wavelength values
   push();
