@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="resources/astro-viz.css">
+  <link rel="stylesheet" type="text/css" href="resources/blackbody.css">
+
+  <title>The Mandelbrot Set</title>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>The Mandelbrot Set</h1>
+
+    <div class="intro">
+      <ul class="head-list">
+        <li class="list-header">This is a visualization of the Mandelbrot set
+          based on Coding Challenge #21 from the YouTube channel The Coding
+          Train.
+        </li>
+
+        <li class="list-header">The Mandelbrot set was first defined in 1978.
+          But it was first seen by Benoit Mandelbrot in 1980 during his work
+          with computer visualization IBM. The set is constructed in the <i>complex plane</i>, the 2-d plane defined by real and imaginary numbers.
+        </li>
+
+        <li class="list-header">The graph shows different regions which are colored according to a simple equation, z(n+1) = z(n)^2 + c. The values of z are complex, having a form of a + bi, where i^2 = -1. Real values are plotted along the horizontal axis and imaginary values are plotted along the vertical axis.
+        </li>
+
+        <li>The controls below determine the part of the Mandelbrot set which is visible in the window.</li>
+
+      </ul>
+
+    </div>
+
+    <div id="p5canvas">
+    </div>
+
+    <div class="buttons">
+      <form>
+        <input type="button" value="Some 1" onclick="measure()">
+        &emsp;
+        <input type="button" value="Some 2" onclick="reveal()">
+        &emsp;
+        <input type="button" value="Some 3" onclick="restart()">
+      </form>
+    </div>
+
+    <div class="footer">
+      <p class="pfooter"><a href="../index.html">
+          Back to Healy's homepage</a></p>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+  <script src="resources/mandelbrot.js"></script>
+
+</body>
+
+</html>
