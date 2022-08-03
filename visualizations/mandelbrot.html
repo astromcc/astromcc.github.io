@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="resources/astro-viz.css">
-  <link rel="stylesheet" type="text/css" href="resources/blackbody.css">
+  <link rel="stylesheet" type="text/css" href="resources/mandelbrot.css">
 
   <title>The Mandelbrot Set</title>
 
@@ -25,10 +25,10 @@
 
         <li class="list-header">The Mandelbrot set was first defined in 1978.
           But it was first seen by Benoit Mandelbrot in 1980 during his work
-          with computer visualization IBM. The set is constructed in the <i>complex plane</i>, the 2-d plane defined by real and imaginary numbers.
+          with computer visualization at IBM. The set is constructed in the <i>complex plane</i>, the 2-d plane defined by real and imaginary numbers.
         </li>
 
-        <li class="list-header">The graph shows different regions which are colored according to a simple equation, z(n+1) = z(n)^2 + c. The values of z are complex, having a form of a + bi, where i^2 = -1. Real values are plotted along the horizontal axis and imaginary values are plotted along the vertical axis.
+        <li class="list-header">The graph shows different regions which are colored according to a simple equation, z(n+1) = z(n)^2 + c. The values z are complex, having a form of a + bi, where i^2 = -1. Real values are plotted along the horizontal axis and imaginary values are plotted along the vertical axis.
         </li>
 
         <li>The controls below determine the part of the Mandelbrot set which is visible in the window.</li>
@@ -42,11 +42,40 @@
 
     <div class="buttons">
       <form>
-        <input type="button" value="Some 1" onclick="measure()">
+        X Position:
+        <input type="button" value="<< -" onclick="xmm()">
         &emsp;
-        <input type="button" value="Some 2" onclick="reveal()">
+        <input type="button" value="< -" onclick="xminus()">
         &emsp;
-        <input type="button" value="Some 3" onclick="restart()">
+        <input type="button" value="+ >" onclick="xplus()">
+        &emsp;
+        <input type="button" value="+ >>" onclick="xpp()">
+        <br><br>
+
+        Y Position:
+        <input type="button" value="<< -" onclick="ymm()">
+        &emsp;
+        <input type="button" value="< -" onclick="yminus()">
+        &emsp;
+        <input type="button" value="+ >" onclick="yplus()">
+        &emsp;
+        <input type="button" value="+ >>" onclick="ypp()">
+        <br><br>
+
+        Zoom:
+        <input type="button" value="<< out" onclick="zmm()">
+        &emsp;
+        <input type="button" value="< out" onclick="zminus()">
+        &emsp;
+        <input type="button" value="in >" onclick="zplus()">
+        &emsp;
+        <input type="button" value="in >>" onclick="zpp()">
+        <br><br>
+
+        Resolution (Max. Iterations):
+        <input type="button" value="-10" onclick="rminus()">
+        &emsp;
+        <input type="button" value="+10" onclick="rplus()">
       </form>
     </div>
 
