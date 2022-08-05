@@ -44,7 +44,7 @@ let specmaxes = {
 
 function preload() {
   // Load default G2V stellar spectrum
-  g2vflux = loadJSON("data/g2vflux300900.json");
+  g2vflux = loadJSON("data/pickles-spectra/g2vflux300900.json");
 }
 
 function setup() {
@@ -54,25 +54,25 @@ function setup() {
   // Load remaining stellar spectra that won't be displayed until user clicks.
   // These data are lists in 1 nanometer intervals from 300 to 900 nanometers
   // Stellar spectra are fluxes, normalized to 1 at 500 nanometers
-  o9vflux = loadJSON("data/o9vflux300900.json");
-  b3vflux = loadJSON("data/b3vflux300900.json");
-  b8vflux = loadJSON("data/b8vflux300900.json");
-  a0vflux = loadJSON("data/a0vflux300900.json");
-  a3vflux = loadJSON("data/a3vflux300900.json");
-  a7vflux = loadJSON("data/a7vflux300900.json");
-  f2vflux = loadJSON("data/f2vflux300900.json");
-  f8vflux = loadJSON("data/f8vflux300900.json");
-  g8vflux = loadJSON("data/g8vflux300900.json");
-  k2vflux = loadJSON("data/k2vflux300900.json");
-  k7vflux = loadJSON("data/k7vflux300900.json");
-  m2vflux = loadJSON("data/m2vflux300900.json");
-  m6vflux = loadJSON("data/m6vflux300900.json");
+  o9vflux = loadJSON("data/pickles-spectra/o9vflux300900.json");
+  b3vflux = loadJSON("data/pickles-spectra/b3vflux300900.json");
+  b8vflux = loadJSON("data/pickles-spectra/b8vflux300900.json");
+  a0vflux = loadJSON("data/pickles-spectra/a0vflux300900.json");
+  a3vflux = loadJSON("data/pickles-spectra/a3vflux300900.json");
+  a7vflux = loadJSON("data/pickles-spectra/a7vflux300900.json");
+  f2vflux = loadJSON("data/pickles-spectra/f2vflux300900.json");
+  f8vflux = loadJSON("data/pickles-spectra/f8vflux300900.json");
+  g8vflux = loadJSON("data/pickles-spectra/g8vflux300900.json");
+  k2vflux = loadJSON("data/pickles-spectra/k2vflux300900.json");
+  k7vflux = loadJSON("data/pickles-spectra/k7vflux300900.json");
+  m2vflux = loadJSON("data/pickles-spectra/m2vflux300900.json");
+  m6vflux = loadJSON("data/pickles-spectra/m6vflux300900.json");
   // Load UBVR bandpasses that won't be displayed until user clicks.
   // Bandpasses are transmission coefficients, normalized to 1
-  uband = loadJSON("data/ubandpass300900.json");
-  bband = loadJSON("data/bbandpass300900.json");
-  vband = loadJSON("data/vbandpass300900.json");
-  rband = loadJSON("data/rbandpass300900.json");
+  uband = loadJSON("data/ubvr-filters/ubandpass300900.json");
+  bband = loadJSON("data/ubvr-filters/bbandpass300900.json");
+  vband = loadJSON("data/ubvr-filters/vbandpass300900.json");
+  rband = loadJSON("data/ubvr-filters/rbandpass300900.json");
   // Set black background, draw axes, and display default G2V spectrum
   background(0);
   drawAxes();
