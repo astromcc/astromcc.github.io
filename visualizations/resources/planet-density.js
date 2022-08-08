@@ -6,7 +6,7 @@
 // slider element for Density control
 let denslide;
 
-// percent of body volume occupied by metal, 0 - 100
+// Default percentage of body volume occupied by metal, 0 - 100
 let metpc;
 let percents = [50, 50, 50, 50, 50];
 
@@ -62,7 +62,7 @@ function setup() {
   cores[3] = loadImage("images/moon-core.png");
   cores[4] = loadImage("images/mars-core.png");
 
-  // Set black background
+  // Set background
   background(237, 199, 183);
 
   // Set up text labels

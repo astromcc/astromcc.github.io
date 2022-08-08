@@ -25,6 +25,11 @@ img {
   margin: 0;
 }
 
+.columnc {
+  float: left;
+  padding-left: 7px;
+}
+
 .left {
   margin-left: 7px;
   width: 143px;

@@ -3,7 +3,7 @@
 // * Add an intensity readout to display the mouseY position scaled from
 //   zero (on the x axis) to one (at the top of the spectrum).
 // * Add a semi-transparent background of the visible spectrum to give
-//   visual context to the wavelengths.
+//   visual context to the wavelengths. ** COMPLETED **
 // * Add the option to display markers for the strongest spectral lines of
 //   different chemical elements (H, He, Ca, Na, Fe, etc.)
 // * Add the UBVR filter functionality to display color indices and illustrate
