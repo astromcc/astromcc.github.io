@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="resources/astro-viz.css">
+  <link rel="stylesheet" type="text/css" href="resources/planet-density.css">
+
+  <title>Densities of Planets</title>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Densities of the Terrestrial Planets</h1>
+
+    <div class="intro">
+      <ul class="head-list">
+        <li class="list-header">How can we find the size of a planet's metal
+          core? We can't dig down to the core to find out. We must infer the
+          size of the core. <em>Density</em> is a clue: metal is denser than
+          rock. More metal means a denser body.</li>
+        <li class="list-header"><b>Measured Density</b> of a planetary body is
+          determined from the body's observed mass and radius. By calculating
+          the pressure on the deep interior of a planetary body, the
+          <em>uncompressed</em> density of the body can be determined. This
+          density can be compared with densities of rock and metal measured in
+          a lab.</li>
+        <li class="list-header"><b>Calculated Density</b> of a planetary body
+          is determined from a chosen mixture of rock and metal. In reality,
+          rock and metal have a range of densities depending on pressure,
+          chemical composition, and other factors.</li>
+        <li class="list-header">For this simplified simulation, a metallic
+          core has a density of 8000 kg per cubic meter (or 8 grams per cubic
+          centimeter) while the rocky mantle and crust have a density of 3000
+          kg per cubic meter (or 3 grams per cubic centimeter).</li>
+        <li>To begin your exploration, choose one of the 5 terrestrial
+          bodies. Earth is the default choice.</li>
+        <li>Move the slider up or down to change the relative amount of rock
+          and metal filling the interior of the body.</li>
+        <li>Adjust the fractions to match the Calculated Density to the
+          Measured Density.</li>
+        <li>A match between these densities reveals the approximate size of the
+          body's metallic core.</li>
+    </ul>
+  </div>
+
+    <div class="simulation">
+
+      <div class="navrow">
+        <button class="navbtn" id="merc">Mercury</button>
+        <button class="navbtn" id="venu">Venus</button>
+        <button class="navbtn chosen" id="eart">Earth</button>
+        <button class="navbtn" id="moon">Moon</button>
+        <button class="navbtn" id="mars">Mars</button>
+      </div>
+
+      <div id="p5canvas"></div>
+
+    </div>
+
+    <div class="footer highlight-color3">
+      <p class="pfooter">
+        <a href="../index.html">Dr. Healy's homepage</a> >
+        <a href="astro-viz.html">Astro Simulations</a>
+      </p>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+  <script src="resources/planet-density.js"></script>
+
+</body>
+
+</html>
