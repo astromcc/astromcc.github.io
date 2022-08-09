@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="resources/astro-viz.css">
-  <link rel="stylesheet" type="text/css" href="resources/sdss-gal-slices.css">
+  <link rel="stylesheet" type="text/css" href="resources/sdss-gal-slices_new.css">
 
   <title>Galaxies from SDSS</title>
 
@@ -17,37 +17,37 @@
   <div class="container">
     <h1>Mapping Galaxies in the Sloan Digital Sky Survey</h1>
 
-    <ul class="head-list">
-      <li>These data come from Data Release 16 of the
-        Sloan Digital Sky Survey (<a href="https://www.sdss.org/dr16">SDSS webpage
+    <div class="intro">
+      <ul class="head-list">
+        <li>These data come from Data Release 16 of the
+          Sloan Digital Sky Survey (<a href="https://www.sdss.org/dr16">SDSS webpage
           for details</a>).</li>
-      <li>Galaxies are selected based on a minimum brightness.
-        Magnitude limits per filter:
-        u < 22.0, g < 22.2, r < 22.2, i < 21.3, z < 20.5</li>
-      <li>Each image below displays a selection of galaxies
-        with a range of redshifts. Each blue dot is a single galaxy.</li>
-      <li>Each range is selected to display a different
-        distance from us and a different time in cosmic history.</li>
-      <li>Clicking each button on the left-hand navigation bar
-        below selects a different redshift range.</li>
-    </ul>
+        <li>Galaxies are selected based on a minimum brightness.
+            Magnitude limits per filter:
+            u < 22.0, g < 22.2, r < 22.2, i < 21.3, z < 20.5</li>
+        <li>Each image below displays a selection of galaxies
+            with a range of redshifts. Each blue dot is a single galaxy.</li>
+        <li>Each range is selected to display a different
+            distance from us and a different time in cosmic history.</li>
+        <li>Clicking each button on the left-hand navigation bar
+            below selects a different redshift range.</li>
+      </ul>
+    </div>
 
     <div class="row">
-      <div class="columnc" id="p5canvas"></div>
+      <div class="column" id="p5canvas"></div>
     </div>
 
     <div class="footer highlight-color3">
-      <p class="pfooter"><a href="../index.html">
-          Back to Healy's homepage</a></p>
+      <p class="pfooter">
+        <a href="../index.html">Dr. Healy's homepage</a> >
+        <a href="astro-viz.html">Astro Simulations</a>
+      </p>
     </div>
 
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
-  <!-- <script>
-    fetch("data/sdss-gals/gals-by-row.json")
-      .then(response => response.json())
-    </script> -->
   <script src="resources/sdss-gal-slices_new.js"></script>
 
 </body>

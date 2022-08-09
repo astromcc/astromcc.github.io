@@ -47,7 +47,7 @@ function preload() {
 
 function setup() {
   // Create canvas and assign to html div
-  let canvas0 = createCanvas(1010, 700);
+  let canvas0 = createCanvas(1024, 700);
   canvas0.parent("p5canvas");
 
   // Create frame around sky-box
@@ -73,8 +73,8 @@ function setup() {
   // Create user controls
   zhi_slider = createSlider(0.0, 0.75, 0.75);
   zhi_slider.position(100, 350);
+  zhi_slider.style('transform: rotate(-90deg)');
   zhi_slider.style('width', '150px');
-  zhi_slider.style('height', '8px');
   zhi_slider.parent('p5canvas');
   // console.log(zhi_slider);
   noLoop();
