@@ -71,13 +71,20 @@ function setup() {
   }
 
   // Create user controls
-  zhi_slider = createSlider(0.0, 0.75, 0.75);
-  zhi_slider.position(100, 350);
+  zhi_slider = createSlider(0.0, 0.75, 0.75, 0.01);
+  zhi_slider.position(300, 600);
   zhi_slider.style('transform: rotate(-90deg)');
-  zhi_slider.style('width', '150px');
+  zhi_slider.style('width', '300px');
   zhi_slider.parent('p5canvas');
   // console.log(zhi_slider);
   noLoop();
+
+  // Create text labels
+  textSize(20);
+  textAlign(CENTER);
+  text('0.00', 162, 540);
+  text('0.75', 162, 190);
+  text('Redshift', 80, 350);
 }
 
 function mouseReleased() {
@@ -85,8 +92,8 @@ function mouseReleased() {
 }
 
 function draw() {
-  zhi = zhi_slider.value();
-  console.log(zhi);
+  zed = zhi_slider.value();
+  //console.log(zhi);
 
   // Draw a black background
   fill(0);
@@ -95,22 +102,23 @@ function draw() {
   // Draw a point for each galaxy
   // stroke() is the only parameter of a p5js point object
   stroke(255, 127);
-  // if (zhi - zlo > 0.5) {
-  //   stroke(255, 127);
-  //   strokeWeight(1);
-  // } else {
-  //   stroke(255, 255);
-  //   strokeWeight(1);
-  // }
 
   // Plot a point on the sky-box if zlo < z < zhi
-  zlo = 0.0;
-  // zhi = 0.75;
+  dzed = 0.01;
+  zlo = zed - dzed;
+  zhi = zed + dzed;
   for (let id = 0; id < ngals; id++) {
     if (zlist[id] >= zlo && zlist[id] <= zhi) {
       point(xlist[id], ylist[id]);
     }
   }
+
+  // Display the current redshift value from slider
+  fill(238, 226, 220);
+  noStroke();
+  rect(200, 325, 50, 30);
+  fill(0);
+  text(zed.toFixed(2), 220, 350);
 }
 
 // Transform RA/Dec pairs to xy pairs based on canvas layout defined above
