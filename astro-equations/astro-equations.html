@@ -17,22 +17,22 @@
     <p>This page provides a variety of calculations using equations common
       in the field of astronomy.</p>
 
-    <h4>To use an equation,</h4>
+    <h4>To use an equation solver,</h4>
     <ul>
-      <li>Leave one box empty, to be calculated.</li>
-      <li>Fill all other boxes with input numbers.</li>
+      <li>Leave one text box empty. It will be calculated.</li>
+      <li>Enter values into all other boxes.</li>
       <li>Press the Enter key or click the "Solve" button.</li>
       <li>The value of the missing quantity will be displayed.</li>
       <li>Click the "Clear" button to erase all input boxes.</li>
     </ul>
 
     <p>Numbers large and small can be entered into the input boxes below using
-      the "e" format that computers use for scientific notation. The "e"
+      the "e" format that computers use for scientific notation. The "E"
       stands for <i>exponent</i> and it takes the place of the power of ten
       in a number in scientific notation. For example, 1500 = 1.5 x 10^3
-      = 1.5e3. Similarly, 0.0000093 = 9.3 x 10^-6 = 9.3e-6.</p>
+      = 1.5E3. Similarly, 0.0000093 = 9.3 x 10^-6 = 9.3E-6.</p>
 
-    <!-- A note about coding mathematical relations in MathJax library.
+    <!-- Personal note about coding mathematical relations in MathJax library.
      Inline mode is delimited with /( and /)
      Centered "display" mode is delimited with /[ and /]           -->
 
@@ -48,7 +48,7 @@
           <i>parsecs</i></li>
       </ul>
 
-      <p>The forms of the equation are:
+      <p>The equations are:
 
         \[\small \text{parallax} = {1 \over \text{distance}}\]
 
@@ -99,7 +99,7 @@
           <i>parsecs</i></li>
       </ul>
 
-      <p>The forms of the equation are:
+      <p>The equations are:
 
         \[ \small \text{m} = \text{M} + 5 \times log_{10}(d) - 5 \]
 
@@ -154,16 +154,16 @@
           expressed in <i>kelvins</i></li>
         <li>The <b>wavelength</b> of the peak of the spectrum,
           expressed in <i>meters</i> by default<br>
-        <li>The dropdown menu provides other units of length to choose from</li>
+        <li>The dropdown menu provides other wavelength units to choose from</li>
       </ul>
 
-      <p>The forms of the equation are:
+      <p>The equations are:
 
         \[\small \text{wavelength} =
-        {2.9 \times 10^{-3} \over \text{temperature}}\]
+        {2.898 \times 10^{-3} \over \text{temperature}}\]
 
         \[\small \text{temperature} =
-        {2.9 \times 10^{-3} \over \text{wavelength}}\]
+        {2.898 \times 10^{-3} \over \text{wavelength}}\]
       </p>
 
       <table class="indent-left">
@@ -179,7 +179,7 @@
             <td class="table-labels">wavelength = </td>
             <td><input type="text" id="wien_w"></td>
             <td>
-              <select name="units" id="wien_units">
+              <select name="unit" id="wien_unit">
                 <option value="meters" selected>meters</option>
                 <option value="millimeters">millimeters</option>
                 <option value="micrometers">micrometers</option>
@@ -239,7 +239,7 @@
         </li>
       </ul>
 
-      <p>The forms of the equation are:</p>
+      <p>The equations are:</p>
 
       \[\small \frac{L_{star}}{L_{Sun}} =
       \left( \frac{T_{star}}{T_{Sun}} \right)^4 \times
@@ -277,7 +277,7 @@
             <td class="table-labels">radius = </td>
             <td><input type="text" id="ltr_r"></td>
             <td>
-              <select name="units" id="ltr_units">
+              <select name="unit" id="ltr_unit">
                 <option value="solar radii" selected>solar radii</option>
                 <option value="meters">meters</option>
                 <option value="kilometers">kilometers</option>
