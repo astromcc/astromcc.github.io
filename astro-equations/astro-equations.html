@@ -14,38 +14,45 @@
   <div class="container">
     <h1>Astronomy Calculations</h1>
 
-    <p>This page provides a variety of calculations using equations common
-      in the field of astronomy.</p>
+    <button type="button" class="collapsible">INSTRUCTIONS</button>
+    <div class="toggleDiv">
 
-    <h4>To use an equation solver,</h4>
-    <ul>
-      <li>Leave one text box empty. It will be calculated.</li>
-      <li>Enter values into all other boxes.</li>
-      <li>Press the Enter key or click the "Solve" button.</li>
-      <li>The value of the missing quantity will be displayed.</li>
-      <li>Click the "Clear" button to erase all input boxes.</li>
-    </ul>
+      <p>This page provides a variety of calculations using equations common
+        in the field of astronomy.</p>
 
-    <p>Numbers large and small can be entered into the input boxes below using
-      the "e" format that computers use for scientific notation. The "E"
-      stands for <i>exponent</i> and it takes the place of the power of ten
-      in a number in scientific notation. For example, 1500 = 1.5 x 10^3
-      = 1.5E3. Similarly, 0.0000093 = 9.3 x 10^-6 = 9.3E-6.</p>
+      <p>To use one of the equation solvers below...</p>
+      <ul>
+        <li>Leave one text box empty. It will be calculated.</li>
+        <li>Enter values in all other text boxes.</li>
+        <li>Press the Enter key or click the "Solve" button.</li>
+        <li>The value of the missing quantity will be displayed.</li>
+        <li>Click the "Clear" button to erase all text boxes.</li>
+      </ul>
 
-    <!-- Personal note about coding mathematical relations in MathJax library.
+      <p>Numbers may be entered using "e" format for scientific notation.</p>
+      <ul>
+        <li>The "E" stands for <i>exponent</i>, shorthand for a power of ten.</li>
+        <li>For example, 1500 = 1.5 x 10^3 can be written as "1.5E3".</li>
+        <li>Similarly, 0.0000093 = 9.3 x 10^-6 can be written as "9.3E-6".</li>
+      </ul>
+
+      <p></p>
+    </div>
+
+    <!-- NOTE about coding mathematical relations in MathJax library.
      Inline mode is delimited with /( and /)
-     Centered "display" mode is delimited with /[ and /]           -->
+     Centered "display" mode is delimited with /[ and /] -->
 
     <!-- BEGIN STELLAR PARALLAX -->
+    <button type="button" class="collapsible">STELLAR PARALLAX</button>
+    <div class="toggleDiv">
+
     <form name="parallax" class="indented">
-      <h2>Stellar Parallax</h2>
 
       <p>Relationship between:
       <ul>
-        <li>The <b>parallax angle</b> of a star, expressed in
-          <i>arcseconds</i></li>
-        <li>The star's <b>distance</b> from the Sun, expressed in
-          <i>parsecs</i></li>
+        <li>The <b>parallax angle</b> of a star, expressed in <i>arcseconds</i>.</li>
+        <li>The star's <b>distance</b> from the Sun, expressed in <i>parsecs</i>.</li>
       </ul>
 
       <p>The equations are:
@@ -82,21 +89,21 @@
         </tbody>
       </table>
     </form>
+    </div>
     <!-- END STELLAR PARALLAX -->
 
 
     <!-- BEGIN MAGNITUDE DISTNACE -->
+    <button type="button" class="collapsible">MAGNITUDES & DISTANCES</button>
+    <div class="toggleDiv">
+
     <form name="magdist" class="indented">
-      <h2>Magnitude-Distance Relation</h2>
 
       <p>Relationship between:
       <ul>
-        <li>The <b>apparent magnitude</b> of an object, m, has no unit
-          of measure</li>
-        <li>The <b>absolute magnitude</b> of the object, M, has no unit
-          of measure</li>
-        <li>The <b>distance</b> of the object, d, expressed in
-          <i>parsecs</i></li>
+        <li>The <b>apparent magnitude</b> of an object, m, has no unit of measure.</li>
+        <li>The <b>absolute magnitude</b> of the object, M, has no unit of measure.</li>
+        <li>The <b>distance</b> of the object, d, expressed in <i>parsecs</i>.</li>
       </ul>
 
       <p>The equations are:
@@ -141,21 +148,23 @@
         </tbody>
       </table>
     </form>
+    </div>
     <!-- END MAGNITUDE-DISTANCE -->
 
 
     <!-- BEGIN WIEN'S LAW -->
+    <button type="button" class="collapsible">WIEN'S LAW FOR BLACKBODY SPECTRA</button>
+    <div class="toggleDiv">
+
     <form name="wien" class="indented">
-      <h2>Wien's Law</h2>
 
       <p>Relationship between:
       <ul>
-        <li>The <b>temperature</b> of an object emitting a thermal spectrum,
-          expressed in <i>kelvins</i></li>
-        <li>The <b>wavelength</b> of the peak of the spectrum,
-          expressed in <i>meters</i> by default<br>
-        <li>The dropdown menu provides other wavelength units to choose from</li>
+        <li>The <b>temperature</b> of an object emitting a thermal spectrum, expressed in <i>kelvins</i>.</li>
+        <li>The <b>wavelength</b> of the peak of the spectrum, expressed in <i>meters</i> by default.</li>
       </ul>
+
+      <p>The dropdown menu provides alternative wavelength units.</p>
 
       <p>The equations are:
 
@@ -199,45 +208,39 @@
         </tbody>
       </table>
     </form>
+    </div>
     <!-- END WIEN'S LAW -->
 
 
     <!-- BEGIN lUMINOSITY-TEMPERATURE-RADIUS -->
-    <form name="wien" class="indented">
-      <h2>Luminosity-Temperature-Radius Relation for Stars</h2>
+    <button type="button" class="collapsible">LUMINOSITY - TEMPERATURE - RADIUS RELATION FOR STARS</button>
+    <div class="toggleDiv">
+
+    <form name="ltr" class="indented">
 
       <p>Relationship between:
       <ul>
-        <li>A star's <b>luminosity</b>, \( \small L_{star} \) expressed in
-          <i>solar units</i>. For example:
+        <li>A star's <b>luminosity</b>, \( \small L_{star} \) expressed in <i>solar units</i>. For example:
           <ul>
-            <li>a star with half the luminosity of the Sun would
-              have \(\small L_{star} / L_{Sun} = 0.5\)</li>
-            <li>a star with 100 times the luminosity of
-              the Sun would have \(\small L_{star} / L_{Sun} = 100\)
+            <li>a star with half the luminosity of the Sun would have \(\small L_{star} / L_{Sun} = 0.5\)</li>
+            <li>a star with 100 times the luminosity of the Sun would have \(\small L_{star} / L_{Sun} = 100\)
           </ul>
         </li>
-        <li>The star's <b>surface temperature</b>, \( \small T_{star} \),
-          expressed in <i>kelvins</i>
+        <li>The star's <b>surface temperature</b>, \( \small T_{star} \), expressed in <i>kelvins</i>
           <ul>
             <li>Sun's surface temperature, \( \small T_{Sun} \), is 5,800 K</li>
-            <li>Stars typically have surface temperatures between 3,000 and
-              50,000 K</li>
+            <li>Stars typically have surface temperatures between 3,000 and 50,000 K</li>
           </ul>
         </li>
-        <li>The star's <b>radius</b>, \( \small R_{star} \), expressed in
-          <i>solar units</i> by default. For example:
+        <li>The star's <b>radius</b>, \( \small R_{star} \), expressed in <i>solar units</i> by default. For example:
           <ul>
-            <li>a star with a radius 4 times smaller than the Sun would have
-              \(\small R_{star} / R_{Sun} = 0.25\)</li>
-            <li>a star with a radius 10 times larger than the Sun would have
-              \(\small R_{star} / R_{Sun} = 10\)</li>
-            <li>The dropdown menu provides other units of length to choose
-              from</li>
-
+            <li>a star with a radius 4 times smaller than the Sun would have \(\small R_{star} / R_{Sun} = 0.25\)</li>
+            <li>a star with a radius 10 times larger than the Sun would have \(\small R_{star} / R_{Sun} = 10\)</li>
           </ul>
         </li>
       </ul>
+
+      <p>The dropdown menu provides alternative units of stellar radius.</p>
 
       <p>The equations are:</p>
 
@@ -253,10 +256,8 @@
       \sqrt { \frac{L_{star}}{L_{Sun}} } \div
       \left( { \frac{T_{star}}{T_{Sun}} } \right)^2 \]
 
-      <p><u>Note</u>: In the equation for luminosity, the first quantity on the
-        right side is <i>multiplied</i> by the second quantity.
-        In the equations for temperature and radius, the first quantity on the
-        right side is <i>divided</i> by the second quantity.
+      <p><u>Note</u>: In the equation for luminosity, the first quantity on the right side is <i>multiplied</i> by the second.<br>
+        In the equations for temperature and radius, the first quantity on the right side is <i>divided</i> by the second.
 
       <table class="indent-left">
         <tbody>
@@ -297,13 +298,16 @@
         </tbody>
       </table>
     </form>
+    </div>
     <!-- END lUMINOSITY-TEMPERATURE-RADIUS -->
 
+  <div class="footer">
+    <p class="pfooter"><a href="../index.html">Back to Kevin Healy's homepage.</a></p>
+  </div>
 
   </div>
 
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <script src=astro-equations.js></script>
 
 </body>
