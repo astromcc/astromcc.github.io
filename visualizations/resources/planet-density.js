@@ -1,3 +1,17 @@
+// Set up collapsible INTRODUCTION section
+// Single element, so no need for a list as in astro-equations.js
+var coll = document.getElementById("collapsible");
+
+coll.addEventListener("click", function() {
+  this.classList.toggle("active");
+  var content = this.nextElementSibling;
+  if (content.style.display === "block") {
+    content.style.display = "none";
+  } else {
+    content.style.display = "block";
+  }
+});
+
 // Scale planetary body core using a slider and calculate the bulk density
 // of the body based on a simple mixture of rock and metal with densities
 // of 8 g/cc and 3 g/cc, respectively.
@@ -5,6 +19,9 @@
 // Variables for interface
 // slider element for Density control
 let denslide;
+// y positions of "Rock" and "Metal" labels for slider
+let yrock = 105;
+let ymetal = 545;
 
 // Default percentage of body volume occupied by metal, 0 - 100
 let metpc;
@@ -66,10 +83,10 @@ function setup() {
   background(237, 199, 183);
 
   // Set up text labels
-  textSize(20);
+  textSize(18);
   textAlign(CENTER);
-  text('Rock', 92, 85);
-  text('Metal', 92, 510);
+  text('Rock', 92, yrock);
+  text('Metal', 92, ymetal);
   text('Calculated Density', 340, 670);
   text('Measured Density', 630, 670);
 
@@ -82,7 +99,7 @@ function setup() {
   denslide.style('transform: rotate(-90deg)');
   denslide.position(-57, 300);
   denslide.parent("p5canvas");
-  denslide.style('width', '300px');
+  // Slider visual properties set in the .scss file
 }
 
 function draw() {
@@ -93,18 +110,21 @@ function draw() {
   liveDensity = calcDens(rockpc);
   percents[bodyNum] = rockpc;
 
-  // Draw a black background behind images
+  // Draw a black background behind planet images
   fill(0);
   rect(185, 0, 600, 600);
 
   // Write rock and metal percentages above and below slider
+  // First, draw filled rectangles behind % values for better text appearance
   fill('#edc7b7');
   noStroke();
-  rect(60, 90, 60, 30);
-  rect(60, 455, 60, 30);
+  rect(60, yrock+10, 60, 30);
+  rect(60, ymetal-50, 60, 30);
+
+  // Second, write % values 
   fill(0);
-  text(rockpc + '%', 92, 115);
-  text((100 - rockpc) + '%', 92, 480);
+  text(rockpc + '%', 92, yrock+30);
+  text((100 - rockpc) + '%', 92, ymetal-30);
 
   // Write Calculated and Measured densities above labels
   fill('#edc7b7');
