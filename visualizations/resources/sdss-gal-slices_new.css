@@ -1,9 +1,7 @@
-@charset "utf-8";
-
 /* Define overrides and additions to the template astro-viz.css file */
 /* Define page layout */
 .container {
-  width: 1024px;
+  width: 1000px;
   text-align: center;
 }
 
@@ -12,11 +10,17 @@
   margin-bottom: 12px;
 }
 
+.simulation {
+  width: 986px;
+  padding: 0;
+  margin: 0 7px 0 7px;
+}
+
 #p5canvas {
-  width: 1024;
-  height: 700;
+  width: 986px;
+  height: 700px;
   position: relative;
-  padding: 0 0 0 0;
+  padding: 0;
 }
 
 /* Define 3-column layout */
@@ -57,78 +61,46 @@
   clear: both;
 }
 
+input[type="range"] {
+  margin: auto;
+  -webkit-appearance: none;
+  position: relative;
+  overflow: hidden;
+  height: 40px;
+  width: 300px;
+  cursor: pointer;
+  border-radius: 0;
+  /* iOS */
+}
 
-input[type=range] {
+::-webkit-slider-runnable-track {
+  /* Background color of slider track */
+  background: #444;
+}
+
+::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 100%;
-  margin: 0px 0;
-  background-color: transparent;
+  width: 20px;
+  /* 1 */
+  height: 40px;
+  background: #fff;
+  box-shadow: -200px 0 0 200px #aaa;
+  /* 2 */
+  border: 2px solid #000;
+  /* 1 */
 }
-input[type=range]:focus {
-  outline: none;
+
+::-moz-range-track {
+  height: 40px;
+  background: #444;
 }
-input[type=range]::-webkit-slider-runnable-track {
-  background: #ff3011;
-  border: 1px solid #000000;
-  width: 100%;
-  height: 8px;
-  cursor: pointer;
-}
-input[type=range]::-webkit-slider-thumb {
-  margin-top: -26px;
-  width: 15px;
-  height: 60px;
-  background: #444444;
-  border: 3px solid #000000;
-  border-radius: 15px;
-  cursor: pointer;
-  -webkit-appearance: none;
-}
-input[type=range]::-moz-range-track {
-  background: #ff3011;
-  border: 1px solid #000000;
-  width: 100%;
-  height: 8px;
-  cursor: pointer;
-}
-input[type=range]::-moz-range-thumb {
-  width: 15px;
-  height: 60px;
-  background: #444444;
-  border: 3px solid #000000;
-  border-radius: 15px;
-  cursor: pointer;
-}
-input[type=range]::-ms-track {
-  background: transparent;
-  border-color: transparent;
-  border-width: 1px 0;
-  color: transparent;
-  width: 100%;
-  height: 8px;
-  cursor: pointer;
-}
-input[type=range]::-ms-fill-lower {
-  background: #ff3011;
-  border: 2px solid #000000;
-}
-input[type=range]::-ms-fill-upper {
-  background: #ff3011;
-  border: 2px solid #000000;
-}
-input[type=range]::-ms-thumb {
-  width: 15px;
-  height: 60px;
-  background: #444444;
-  border: 3px solid #000000;
-  border-radius: 15px;
-  cursor: pointer;
-  margin-top: 0px;
-  /*Needed to keep the Edge thumb centred*/
-}
-input[type=range]:focus::-ms-fill-lower {
-  background: #ff3011;
-}
-input[type=range]:focus::-ms-fill-upper {
-  background: #ff3011;
+
+::-moz-range-thumb {
+  background: #fff;
+  height: 40px;
+  width: 20px;
+  border: 2px solid #000;
+  border-radius: 0 !important;
+  box-shadow: -200px 0 0 200px #aaa;
+  box-sizing: border-box;
 }

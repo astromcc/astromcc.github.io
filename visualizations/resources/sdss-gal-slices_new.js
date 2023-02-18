@@ -11,7 +11,7 @@ const decmax = 55;  // Maximum Dec of galaxy map, in degrees
 // Seems to be a sampling issue (high galaxy counts) for z > 0.75
 // in the neighborhood of RA, Dec ~ 10h, 20d
 const zmin = 0;    // Minimum redshift of galaxy sample
-const zmax = 0.75;    // Maximum redshift of galaxy sample
+const zmax = 0.5;    // Maximum redshift of galaxy sample
 
 // Square region (height = width) of p5js Canvas to fill with galaxies
 const plotxy = 630;
@@ -47,7 +47,7 @@ function preload() {
 
 function setup() {
   // Create canvas and assign to html div
-  let canvas0 = createCanvas(1024, 700);
+  let canvas0 = createCanvas(986, 700);
   canvas0.parent("p5canvas");
 
   // Create frame around sky-box
@@ -71,10 +71,10 @@ function setup() {
   }
 
   // Create user controls
-  zhi_slider = createSlider(0.0, 0.75, 0.75, 0.01);
+  zhi_slider = createSlider(0, 50, 50);
   zhi_slider.position(300, 600);
   zhi_slider.style('transform: rotate(-90deg)');
-  zhi_slider.style('width', '300px');
+  zhi_slider.position(12, 337);
   zhi_slider.parent('p5canvas');
   // console.log(zhi_slider);
   noLoop();
@@ -82,9 +82,9 @@ function setup() {
   // Create text labels
   textSize(20);
   textAlign(CENTER);
-  text('0.00', 162, 540);
-  text('0.75', 162, 190);
-  text('Redshift', 80, 350);
+  text('0.0', 161, 540);
+  text('0.5', 162, 190);
+  text('Redshift', 90, 362);
 }
 
 function mouseReleased() {
@@ -92,7 +92,8 @@ function mouseReleased() {
 }
 
 function draw() {
-  zed = zhi_slider.value();
+  zslide = zhi_slider.value();
+  zed = zslide / 100.0;
   //console.log(zhi);
 
   // Draw a black background
@@ -116,9 +117,9 @@ function draw() {
   // Display the current redshift value from slider
   fill(238, 226, 220);
   noStroke();
-  rect(200, 325, 50, 30);
+  rect(195, 340, 50, 30);
   fill(0);
-  text(zed.toFixed(2), 220, 350);
+  text(zed.toFixed(2), 220, 362);
 }
 
 // Transform RA/Dec pairs to xy pairs based on canvas layout defined above
