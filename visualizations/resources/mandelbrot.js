@@ -19,10 +19,6 @@ function setup() {
   ycenter = 0;
   zoom = 2;
   maxiterations = 100;
-
-  posXSlider = createSlider(-2, 2, 0, 0.01);
-  posYSlider = createSlider(-2, 2, 0, 0.01);
-  zoomSlider = createSlider( 0.1, 2, 2, 0.1);
 }
 
 function draw() {
