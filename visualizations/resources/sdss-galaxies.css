@@ -7,7 +7,7 @@
 
 .intro {
   text-align: left;
-  margin-bottom: 12px;
+  margin-bottom: 7px;
 }
 
 .simulation {
@@ -18,7 +18,7 @@
 
 #p5canvas {
   width: 986px;
-  height: 700px;
+  height: 900px;
   position: relative;
   padding: 0;
 }
