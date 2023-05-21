@@ -68,7 +68,7 @@ body {
   margin-left: 5px;
   float: left;
   width: 230px;
-  height: 805px;
+  height: 750px;
 }
 
 .column-center {
@@ -78,7 +78,7 @@ body {
   float: left;
   width: 230px;
   border-radius: 7px 7px 0 0;
-  height: 805px;
+  height: 750px;
 }
 
 .column-right {
@@ -87,7 +87,7 @@ body {
   margin: 0 5px 0 5px;
   float: left;
   width: 420px;
-  height: 805px;
+  height: 750px;
 }
 
 /* Clear float after columns */
@@ -119,13 +119,13 @@ li a {
 }
 
 li.left a {
-  padding: 15px 0 15px 25px;
+  padding: 12px 0 12px 25px;
   margin: 2px 5px 2px 10px;
-  border-radius: 7px;
+  border-radius: 5px;
 }
 
 li.center a {
-  padding: 10px 0 10px 25px;
+  padding: 9px 0 9px 25px;
   margin: 2px 5px 2px 10px;
   border-radius: 5px;
 }

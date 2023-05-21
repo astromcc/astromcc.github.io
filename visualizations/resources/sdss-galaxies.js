@@ -9,57 +9,57 @@
 // Entire extent of galaxy sample in JSON file, defined in Python notebook
 // RA and Dec limits are arbitrary but chosen to be square, 45deg x 45deg
 // Also chosen to include Virgo and Coma clusters at low redshift
-const ramin = 165; // Minimum RA of galaxy map, 10h = 150d
-const ramax = 210; // Maximum RA of galaxy map, 13h = 195d
-const decmin = 10; // Minimum Dec of galaxy map, in degrees
-const decmax = 55; // Maximum Dec of galaxy map, in degrees
+const RAMIN = 165; // Minimum RA of galaxy map, 11h = 165d
+const RAMAX = 210; // Maximum RA of galaxy map, 14h = 210d
+const DECMIN = 10; // Minimum Dec of galaxy map, in degrees
+const DECMAX = 55; // Maximum Dec of galaxy map, in degrees
 
-const zmin = 0.0;  // Minimum redshift of galaxy sample
-const zmax = 0.5;  // Maximum redshift of galaxy sample
-const dzed = 0.01; // Width of redshift range for plotting
+const ZMIN = 0.0;  // Minimum redshift of galaxy sample
+const ZMAX = 0.5;  // Maximum redshift of galaxy sample
+const DZED = 0.01; // Width of redshift range for plotting
 
 // Slider transformation, z(s) = m*s + b, where slider value = s
 const sliderMin = 0;
 const sliderMax = 100;
-const zSliderSlope = (1/100)*(zmax - zmin - 2*dzed);
-const zSliderConst = zmin + dzed;
+const zSliderSlope = (1/100)*(ZMAX - ZMIN - 2*DZED);
+const zSliderConst = ZMIN + DZED;
 
 // Rectangular sky box to fill with galaxies
 // OLD const plotxy = 600;
-const xwidth = 750;
-const yheight = 750;
+const XWIDTH = 750;
+const YHEIGHT = 750;
 // x position of RA limits, remembering RA increases to the left in the sky
 // So xleft is left of xright on canvas, higher RA to the left on canvas
-const xleft = 210;
-const xright = xleft + xwidth;
+const XLEFT = 210;
+const XRIGHT = XLEFT + XWIDTH;
 // y positions of Dec limits, remembering y increases downward on the canvas
 // ytop is above ybot on canvas, increasing Dec higher on canvas
-const ytop = 30;
-const ybot = ytop + yheight;
+const YTOP = 30;
+const YBOT = YTOP + YHEIGHT;
 
 // x positions for "0.0" and "0.5" labels of redshift slider
-const x00 = 150;
+const X00 = 150;
 
 // y position for "Redshift" and z-value labels of redshift slider
-const xlabel = 105;
-const ylabel = 120;
+const XLABEL = 105;
+const YLABEL = 120;
 const labelSep = 20;
 
 // Calculate celestial RA/Dec -> canvas x/y transform
 // Both slopes are negative because of the coordinate setup
 // RA on sky increases to the left, x on canvas increases to the right
 // Dec on sky increases toward top, y on campus increases toward bottom
-const mx = (xwidth) / (ramin - ramax);
-const my = (yheight) / (decmin - decmax);
-const x0 = xright - mx*ramin;
-const y0 = ybot - my*decmin;
+const MX = XWIDTH / (RAMIN - RAMAX);
+const MY = YHEIGHT / (DECMIN - DECMAX);
+const X0 = XRIGHT - MX*RAMIN;
+const Y0 = YBOT - MY*DECMIN;
 
 let zSlider;
 let zPlay;
 let galaxyData;
 let xlist = [];
 let ylist = [];
-let ngals;
+let nGals;
 let firstDraw = true;
 
 function preload() {
@@ -77,14 +77,15 @@ function setup() {
   noLoop();
 
   placeSlider();
-  // placeAllZButton();
-  // placePlayButton();
+  placeAllZButton();
+  placePlayButton();
 
   drawSliderLabels();
   drawGalaxiesInRD(0.0, 0.5);
+  drawHorizontalAxis(XLEFT, XRIGHT, YBOT, 5, 10, 16, true, 2, 7, "Right Ascension (hours)");
 
   galaxyData = mergeGalaxyData(radata, decdata, zdata);
-  ngals = galaxyData.length;
+  nGals = galaxyData.length;
 }
 
 function mouseReleased() {
@@ -103,7 +104,7 @@ function draw() {
 
   // Draw a black background for the sky box
   fill(0);
-  rect(xleft-1, ytop-1, xwidth+2, yheight+2);
+  rect(XLEFT-1, YTOP-1, XWIDTH+2, YHEIGHT+2);
 
   drawGalaxiesInRD(zlo, zhi);
   updateZDisplay(zlo, zhi);
@@ -116,38 +117,40 @@ function placeSlider() {
   zSlider.parent('p5canvas');
 }
 
-function placePlayButton() {
-  zPlay = createButton("PLAY");
-  zPlay.style("font-size", "18px");
-  zPlay.style("border", "2px solid #000000");
-  zPlay.style("border-radius", "4px");
-  zPlay.position(xlabel-30, 780);
-  zPlay.size(100, 30);
-}
-
 function placeAllZButton() {
   allZ = createButton("Show all");
   allZ.style("font-size", "18px");
   allZ.style("border", "2px solid #000000");
   allZ.style("border-radius", "4px");
-  allZ.position(xlabel-30, 735);
+  allZ.position(XLABEL + 72, 735);
   allZ.size(100, 30);
-  //allZ.mousePressed(drawGalaxiesInRD(0.0,0.5));
+  allZ.mousePressed(drawGalaxiesInRD);
+}
+
+function placePlayButton() {
+  zPlay = createButton("PLAY");
+  zPlay.style("font-size", "18px");
+  zPlay.style("border", "2px solid #000000");
+  zPlay.style("border-radius", "4px");
+  zPlay.position(XLABEL + 72, 780);
+  zPlay.size(100, 30);
 }
 
 function drawSliderLabels() {
   textSize(20);
+  fill(0);
+  strokeWeight(0);
   textAlign(CENTER);
   //text('0.00', x00,   535);
   //text('0.50', x00+1, 195);
-  text('Redshift', xlabel, ylabel-labelSep);
+  text('Redshift', XLABEL, YLABEL-labelSep);
 }
 
 function readSliderZ() {
   zvalue = zSlider.value();
   zed = zSliderSlope*zvalue + zSliderConst;
-  low = zed - dzed;
-  high = zed + dzed;
+  low = zed - DZED;
+  high = zed + DZED;
   return [low, high];
 }
 
@@ -155,21 +158,22 @@ function updateZDisplay(lowZ, hiZ) {
   //fill(255, 128, 128);
   fill(238, 226, 220);
   noStroke();
-  rect(xlabel - 73, ylabel + labelSep - 22, 146, 30);
+  rect(XLABEL - 73, YLABEL + labelSep - 22, 146, 30);
   fill(0);
-  text(lowZ.toFixed(3), xlabel - 45, ylabel + labelSep);
-  text("to", xlabel, ylabel + labelSep);
-  text(hiZ.toFixed(3), xlabel + 45, ylabel + labelSep);
+  textSize(20);
+  text(lowZ.toFixed(3), XLABEL - 35, YLABEL + labelSep);
+  text("-", XLABEL, YLABEL + labelSep);
+  text(hiZ.toFixed(3), XLABEL + 35, YLABEL + labelSep);
 }
 
 // Draw a dot if the galaxy is in the correct range of RA, Dec, z
 function drawGalaxiesInRD(lowZ, hiZ) {
   stroke(255);
   strokeWeight(1.5);
-  for (id = 0; id < ngals; id++) {
+  for (id = 0; id < nGals; id++) {
     if (galaxyData[id].z >= lowZ && galaxyData[id].z <= hiZ
-        && galaxyData[id].rdx >= xleft && galaxyData[id].rdx <= xright
-        && galaxyData[id].rdy <= ybot  && galaxyData[id].rdy >= ytop) {
+        && galaxyData[id].rdx >= XLEFT && galaxyData[id].rdx <= XRIGHT
+        && galaxyData[id].rdy <= YBOT  && galaxyData[id].rdy >= YTOP) {
       point(galaxyData[id].rdx, galaxyData[id].rdy);
     }
   }
@@ -183,8 +187,8 @@ function playSliderZ() {
 
 // Transform RA/Dec pairs to xy pairs based on canvas layout defined above
 function celestialToCanvas(ra, dec) {
-  let xpos = mx*ra  + x0;
-  let ypos = my*dec + y0;
+  let xpos = MX*ra  + X0;
+  let ypos = MY*dec + Y0;
 
   return [round(xpos), round(ypos)];
 }
@@ -200,4 +204,34 @@ function mergeGalaxyData(ra, dec, z) {
     data.push({ra: ra[id], dec: dec[id], z: z[id], rdx: rdx, rdy: rdy});
   }
   return data;
+}
+
+function drawHorizontalAxis(startX, endX, axisY, nTicks,
+                            startLabel, fontSize, reverse,
+                            tickThickness, tickLength,
+                            axisLabel) {
+  let step = (endX - startX) / (nTicks - 1);
+  let labels = Array.from({length: nTicks}, (e,i) => (i + startLabel));
+
+  for (i = 0; i < nTicks; i++) {
+    tickX = startX + i*step;
+    stroke(0);
+    strokeWeight(tickThickness);
+    line(tickX, axisY, tickX, axisY + tickLength);
+    strokeWeight(0);
+    textAlign(CENTER);
+    textSize(16);
+    if (reverse) {
+      label = labels[labels.length - i - 1];
+      labelString = label.toString();
+    } else {
+      label = labels[i];
+      labelString = label.toString();
+    }
+    text(labelString, tickX, axisY + fontSize + 10);
+  }
+
+  let labelX = (startX + endX) / 2;
+  textSize(18);
+  text(axisLabel, labelX, axisY + fontSize*4);
 }
