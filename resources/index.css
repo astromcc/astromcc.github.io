@@ -113,25 +113,25 @@ ul {
 /* Link styles for left, center, and right columns */
 li a {
   display: block;
-  padding: 16px 0 16px 25px;
+  padding: 12px 0 12px 25px;
   text-decoration: none;
   color: #000;
 }
 
 li.left a {
-  padding: 12px 0 12px 25px;
+  padding: 11px 0 11px 25px;
   margin: 2px 5px 2px 10px;
   border-radius: 5px;
 }
 
 li.center a {
-  padding: 9px 0 9px 25px;
+  padding: 10px 0 10px 25px;
   margin: 2px 5px 2px 10px;
   border-radius: 5px;
 }
 
 li.right a {
-  padding: 12px 0 12px 25px;
+  padding: 11px 0 11px 25px;
   margin: 2px 5px 2px 10px;
   border-radius: 5px;
 }
